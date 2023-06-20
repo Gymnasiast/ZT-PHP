@@ -1,0 +1,42 @@
+{
+    "name": "gymnasiast/zt-php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Steenbeek",
+            "email": "m.o.steenbeek@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.1",
+        "cyndaron/binary-handler": "dev-master"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "*",
+        "friendsofphp/php-cs-fixer": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZTPHP\\": "src/"
+        }
+    },
+    "repositories": {
+        "binary-handler": {
+            "type": "git",
+            "url": "https://github.com/Cyndaron/binary-handler.git"
+        }
+    },
+    "scripts": {
+        "stan-check": [
+            "vendor/bin/phpstan analyse src --level 9"
+        ],
+        "cs-check": [
+            "vendor/bin/php-cs-fixer fix src/ --allow-risky=yes --dry-run --diff"
+        ],
+        "cs-fix": [
+            "vendor/bin/php-cs-fixer fix src/ --allow-risky=yes"
+        ]
+    }
+}
